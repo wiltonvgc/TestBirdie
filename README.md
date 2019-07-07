@@ -11,6 +11,6 @@ The goal is to implement a classifier for smartphone e-commerce offer titles. Th
 
 ## How to use
 
-The file "outputClassification.csv" contains the classification for offer titles contained in the input file "data_estag_ds.tsv". To update the file "outputClassification.csv", just run "start.py". In the "TrainSmartphone" directory are data for training and classifier testing.
+The file "outputClassification.csv" contains the classification (yes - smartphone, no - not smartphone) for offer titles contained in the input file "data_estag_ds.tsv". To update the file "outputClassification.csv", just run "start.py". In the "TrainSmartphone" directory are data for training and classifier testing.
 
 

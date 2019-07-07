@@ -70,9 +70,9 @@ def ClassFileInput(classifier,count_vect,file_path):
         with open('outputClassification.csv','w') as outputFile:        
                 for title in file_read['TITLE']:
                         classif = ClassTitle(classifier,count_vect,title)
-                        classe = 'sim'
+                        classe = 'yes'
                         if(classif[0] == 0):
-                                classe = 'não'
+                                classe = 'no'
                         outputFile.write(title + ';' + classe)
                         outputFile.write('\n')
 
@@ -95,9 +95,9 @@ def main():
         y_test = split[3]
 
         #Uncomment this line to print classifier report
-        #PrintReport(classifier,x_test,y_test)
+        PrintReport(classifier,x_test,y_test)
 
-        ClassFileInput(classifier,vect,'data_estag_ds.tsv')
+        #ClassFileInput(classifier,vect,'data_estag_ds.tsv')
 
 
         
