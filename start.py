@@ -95,9 +95,9 @@ def main():
         y_test = split[3]
 
         #Uncomment this line to print classifier report
-        PrintReport(classifier,x_test,y_test)
+        #PrintReport(classifier,x_test,y_test)
 
-        #ClassFileInput(classifier,vect,'data_estag_ds.tsv')
+        ClassFileInput(classifier,vect,'data_estag_ds.tsv')
 
 
         
