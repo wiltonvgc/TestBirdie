@@ -104,7 +104,6 @@ def main():
 
 
        
-    
 main()
 
 
@@ -134,22 +133,7 @@ main()
 
 
 
-
-'''
-arquivo = open('TrainSmartphone/no/train_no.csv')
-
-linhas = csv.reader(arquivo)
-
-i = 0
-
-
-
-for linha in arquivo:
-        with open('TrainSmartphone/no/title' + str(i) + '.csv','w') as textFile:
-              textFile.write(linha)
-        i+=1
-'''
-
+s
 
 
 
