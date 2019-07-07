@@ -26,6 +26,7 @@ def LoadDataSet(file_path):
         return (x,y)  
 
 
+#Create Bag Words (text to number) and adjusts the frequency
 def CreateBagWords(words):
         vectorizer = CountVectorizer(max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords.words('portuguese'))  
         x = vectorizer.fit_transform(words).toarray()  
@@ -35,21 +36,26 @@ def CreateBagWords(words):
         
         return (x_tfid,vectorizer)
 
+#Split the data set for testing and training
 def SplitDataSet(x,y):
         x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0) 
         
         return (x_train, x_test, y_train, y_test)
 
+
+#Train classifier RandomForestClassifier
 def TrainClassifier(x_train,y_train):
         classifier = RandomForestClassifier(n_estimators=1000, random_state=0)  
         classifier.fit(x_train, y_train)  
         return classifier
 
 
+#Returns title class of "e-commerce" (smartphone or no)
 def ClassTitle(classifier,count_vect,title):
         return classifier.predict(count_vect.transform([title]))
 
 
+#Print classifier report
 def PrintReport(classifier,x_test,y_test):
         y_pred = classifier.predict(x_test)
         
@@ -57,7 +63,7 @@ def PrintReport(classifier,x_test,y_test):
         print(classification_report(y_test,y_pred))  
         print(accuracy_score(y_test, y_pred)) 
 
-
+#Returns class (output file) of "e-commerce" titles contained in an input file
 def ClassFileInput(classifier,count_vect,file_path):
         file_read = pd.read_csv(file_path, sep='\t')
 
@@ -72,6 +78,7 @@ def ClassFileInput(classifier,count_vect,file_path):
 
         outputFile.close()
 
+#Main function
 def main():
         load = LoadDataSet('TrainSmartphone')
         x_tfid,vect = CreateBagWords(load[0])
